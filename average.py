@@ -4,13 +4,25 @@ import random
 from sorts import selection_sort, insertion_sort, bubble_sort, merge_sort, quick_sort
 
 def main():
-
     subjects = {}
-    for i in range(10):
-        key = "500, random (%s)" %str(i)
-        subjects[key] = []
-        for i in range(500):
-            subjects[key].append(i)
+
+    subjects["500, sorted"] = []
+    for i in range(500):
+        subjects["500, sorted"].append(i)
+        
+    subjects["500, random"] = []
+    for i in range(500):
+        r = random.randint(0, 1000)
+        subjects["500, random"].append(r)
+    
+    subjects["500, reverse sorted"] = []
+    for i in range(500):
+        subjects["500, reverse sorted"].append(300 - i)
+
+    # subjects["1000, random"] = []
+    # for i in range(1000):
+    #     r = random.randint(0, 100)
+    #     subjects["1000, random"].append(r)
 
     iterations = len(subjects)
 
@@ -53,12 +65,12 @@ def main():
     # x axis is indices of subjects
     # y axis is selection_sort_times
     plt.xticks(rotation = 60)
-    plt.title('Time to sort')
-    plt.plot(subjects.keys(), selection_sort_times, label = "selection sort average")
-    plt.plot(subjects.keys(), insertion_sort_times, label = "insertion sort average")
-    plt.plot(subjects.keys(), bubble_sort_times, label = "bubble sort average")
-    plt.plot(subjects.keys(), merge_sort_times, label = "merge sort average")
-    plt.plot(subjects.keys(), quick_sort_times, label = "quick sort average")
+    plt.title('Medium varying inputs of size 500')
+    plt.plot(subjects.keys(), selection_sort_times, label = "selection sort")
+    plt.plot(subjects.keys(), insertion_sort_times, label = "insertion sort")
+    plt.plot(subjects.keys(), bubble_sort_times, label = "bubble sort")
+    plt.plot(subjects.keys(), merge_sort_times, label = "merge sort")
+    plt.plot(subjects.keys(), quick_sort_times, label = "quick sort")
     plt.legend()
     plt.show()
 

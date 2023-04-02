@@ -1,7 +1,7 @@
 
 
 import unittest
-from sorts import selection_sort, insertion_sort, bubble_sort, merge_sort, quick_sort
+from lib.sorts import selection_sort, insertion_sort, bubble_sort, merge_sort, quick_sort
 
 class SelectionSortTest(unittest.TestCase):
     def test_empty_array(self):
